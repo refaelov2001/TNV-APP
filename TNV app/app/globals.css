@@ -1,0 +1,145 @@
+@import "tailwindcss";
+
+/* ============================================
+   THE NEXT VERSION — Design Tokens
+   פלטת "ברזל וקאמל": שחור חם, אפור פחם, נגיעות נחושת/קאמל
+   ============================================ */
+
+:root {
+  /* רקעים */
+  --color-bg-base: #0e0c0b;
+  --color-bg-surface: #161310;
+  --color-bg-card: #1d1914;
+  --color-bg-card-hover: #241f18;
+  --color-bg-elevated: #2a2419;
+
+  /* גבולות */
+  --color-border: #2e281f;
+  --color-border-strong: #3d3527;
+
+  /* טקסט */
+  --color-text-primary: #f4eee1;
+  --color-text-secondary: #c4b9a6;
+  --color-text-muted: #8a8070;
+
+  /* אקסנט — נחושת וקאמל */
+  --color-accent: #c97a3d;
+  --color-accent-light: #e0935a;
+  --color-accent-dim: #6e4322;
+  --color-gold: #d9a84e;
+
+  /* סטטוסים */
+  --color-success: #6fa37a;
+  --color-success-dim: #2a3a2c;
+  --color-warning: #d9a84e;
+  --color-warning-dim: #3a3322;
+  --color-danger: #c2564f;
+  --color-danger-dim: #3a2522;
+  --color-info: #6b8fa3;
+  --color-info-dim: #22323a;
+
+  /* טיפוגרפיה */
+  --font-display: "Rubik", "Noto Sans Hebrew", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Noto Sans Hebrew", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "Courier New", monospace;
+
+  --radius-card: 14px;
+  --radius-control: 10px;
+}
+
+@theme inline {
+  --color-bg-base: var(--color-bg-base);
+  --color-bg-surface: var(--color-bg-surface);
+  --color-bg-card: var(--color-bg-card);
+  --color-bg-card-hover: var(--color-bg-card-hover);
+  --color-bg-elevated: var(--color-bg-elevated);
+  --color-border: var(--color-border);
+  --color-border-strong: var(--color-border-strong);
+  --color-text-primary: var(--color-text-primary);
+  --color-text-secondary: var(--color-text-secondary);
+  --color-text-muted: var(--color-text-muted);
+  --color-accent: var(--color-accent);
+  --color-accent-light: var(--color-accent-light);
+  --color-accent-dim: var(--color-accent-dim);
+  --color-gold: var(--color-gold);
+  --color-success: var(--color-success);
+  --color-success-dim: var(--color-success-dim);
+  --color-warning: var(--color-warning);
+  --color-warning-dim: var(--color-warning-dim);
+  --color-danger: var(--color-danger);
+  --color-danger-dim: var(--color-danger-dim);
+  --color-info: var(--color-info);
+  --color-info-dim: var(--color-info-dim);
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --font-mono: var(--font-mono);
+}
+
+* {
+  border-color: var(--color-border);
+}
+
+html {
+  direction: rtl;
+}
+
+body {
+  background: var(--color-bg-base);
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  font-feature-settings: "tnum";
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: var(--font-display);
+}
+
+.font-numeric {
+  font-family: var(--font-mono);
+  font-feature-settings: "tnum";
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+/* פס גלילה דק ועדין */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-strong);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent-dim);
+}
+
+/* פולס עדין לאינדיקטור "עכשיו" */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(201, 122, 61, 0.55);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(201, 122, 61, 0);
+  }
+}
+.animate-pulse-glow {
+  animation: pulse-glow 2.2s ease-out infinite;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-up {
+  animation: fade-up 0.35s ease-out both;
+}
